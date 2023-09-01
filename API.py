@@ -16,6 +16,10 @@ model = pickle.load(open('lgbm_optimized.pkl', 'rb'))
 
 data =  ZipFile("data/main_test.zip")
 
+@app.route('/', methods=['GET'])
+def home():
+    return '''<h1>Hello World</h1>'''
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
