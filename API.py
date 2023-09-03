@@ -32,7 +32,7 @@ def predict():
         predictions = model.predict_proba(user_data[user_data.columns[1:]])
         predictions = predictions[:, 0]
 
-        return jsonify(predictions.tolist())
+        return jsonify(predictions.tolist()), input_data
     except Exception as e:
         app.logger.debug("Ceci est un message de débogage.")
         app.logger.error("Une erreur s'est produite : %s", str(e))
