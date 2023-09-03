@@ -21,17 +21,14 @@ def predict():
     try:
         input_data = request.json
     
-    
         user_id = input_data["user_id"]
         
         user_data = data[data['SK_ID_CURR'] == user_id]
     
-    
         predictions = model.predict_proba(user_data[user_data.columns[1:]])
         predictions = predictions[:, 0]
     
-    
-        return jsonify(predictions.tolist()), input_data
+        return jsonify(predictions.tolist())
     except Exception as e:
         app.logger.debug("Ceci est un message de débogage.")
         app.logger.error("Une erreur s'est produite : %s", str(e))
