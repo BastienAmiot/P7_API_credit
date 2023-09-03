@@ -25,7 +25,6 @@ def predict():
     input_data = request.json()
     
     user_id = input_data["user_id"]
-    print(user_id)
     
     user_data = data[data['SK_ID_CURR'] == user_id]
     
