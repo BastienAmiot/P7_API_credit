@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='app.log', level=logging.DEBUG)
 
 model = pickle.load(open('lgbm_optimized.pkl', 'rb'))    
 
