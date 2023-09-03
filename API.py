@@ -22,7 +22,7 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    input_data = request.json
+    input_data = request.json()
     
     user_id = input_data["user_id"]
     
