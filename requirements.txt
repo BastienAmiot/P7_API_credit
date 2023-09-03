@@ -1,5 +1,4 @@
 pytest
-logging
 scikit-learn
 ipython==7.27.0
 pandas==1.4.4
