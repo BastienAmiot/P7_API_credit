@@ -23,13 +23,18 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     input_data = request.json()
+    logging.debug("Requête JSON reçue : %s", input_data)
     
     user_id = input_data["user_id"]
+    logging.debug("Identifiant utilisateur : %s", user_id)
     
     user_data = data[data['SK_ID_CURR'] == user_id]
+    logging.debug("Données utilisateur: %s", user_data)
     
     predictions = model.predict_proba(user_data[user_data.columns[1:]])
+    logging.debug("Probabilités de prédiction: %s", predictions)
     predictions = predictions[:, 0]
+    logging.debug("Probabilité de solvabilité de l'utilisateur: %s", predictions)
     
     return jsonify(predictions.tolist())
 
