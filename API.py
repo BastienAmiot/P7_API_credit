@@ -19,7 +19,7 @@ def get_data():
     df = pd.read_csv(main.open('main_test.csv'))
     return df
 
-data = get_data()
+df = get_data()
 
 @app.route('/', methods=['POST'])
 def predict():
@@ -28,7 +28,7 @@ def predict():
     
         user_id = input_data["user_id"]
         
-        user_data = data[data['SK_ID_CURR'] == user_id]
+        user_data = df[df['SK_ID_CURR'] == user_id]
     
         predictions = model.predict_proba(user_data[user_data.columns[1:]])
         predictions = predictions[:, 0]
