@@ -19,7 +19,7 @@ data =  ZipFile("data/main_test.zip")
 @app.route('/', methods=['POST'])
 def predict():
     try:
-        input_data = request.json()
+        input_data = request.json
     
         user_id = input_data["user_id"]
         
