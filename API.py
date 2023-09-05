@@ -12,14 +12,14 @@ def get_data():
     df = pd.read_csv(main.open('main_test.csv'))
     return df
 
-model = pickle.load(open('lgbm_optimized.pkl', 'rb'))
-
 df = get_data()
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-logging.basicConfig(filename='app.log', level=logging.DEBUG)    
+logging.basicConfig(filename='app.log', level=logging.DEBUG)  
+
+model = pickle.load(open('lgbm_optimized.pkl', 'rb'))
 
 @app.route('/', methods=['POST'])
 def predict():
