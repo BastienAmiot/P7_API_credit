@@ -13,8 +13,8 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 logging.basicConfig(filename='app.log', level=logging.DEBUG)  
 
 def get_data():
-    main = ZipFile("data/main_test.zip")
-    df = pd.read_csv(main.open('main_test.csv'))
+    main = ZipFile("data/test_api.zip")
+    df = pd.read_csv(main.open('test_api.csv'))
     return df
 
 df = get_data()
