@@ -1,10 +1,8 @@
 import pickle
 import numpy as np
 import pandas as pd
-import API
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from API import app
 import logging
 from zipfile import ZipFile
 import os
